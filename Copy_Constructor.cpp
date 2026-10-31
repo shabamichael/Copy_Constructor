@@ -9,11 +9,21 @@ class Movie
 {
 public:
 	//parameterized constructor
+	
+	/*
 	Movie(string name, string genre, float rating)
 	{
 		Name = name;
 		Genre = genre;
 		Rating = rating;
+		ActorsCounter = 0;
+		Actors = new string[ActorsCounter];
+	}
+	*/
+	
+	Movie(string name, string genre, float rating) :
+		Name(name), Genre(genre), Rating(rating)
+	{
 		ActorsCounter = 0;
 		Actors = new string[ActorsCounter];
 	}
@@ -23,6 +33,7 @@ public:
 		delete[] Actors;
 		Actors = nullptr;
 	}
+
 	//default constructor
 	Movie()
 	{ 
@@ -30,6 +41,7 @@ public:
 		Genre = "";
 		Rating = 0.0;
 	}
+
 	//copy constructor
 	Movie(const Movie& original)
 	{
@@ -53,7 +65,7 @@ public:
 			Rating = original.Rating;
 			ActorsCounter = original.ActorsCounter;
 			delete[] Actors;
-			//Actors = nullptr;
+			Actors = nullptr;
 
 			Actors = new string[ActorsCounter];
 			for (int i = 0; i < ActorsCounter; i++)
